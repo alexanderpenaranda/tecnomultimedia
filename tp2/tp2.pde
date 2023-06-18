@@ -1,5 +1,6 @@
 //Alexander Peñaranda Diaz - legajo 94752/0
 // link
+
 int cant = 2;
 int tam;
 PImage img;
@@ -15,8 +16,9 @@ void setup() {
 
 void draw() {
   background(234, 232, 211);
-  //cubito();
-  //image(img, 0, 0, 400, 400);
+  image(img, 0, 0, 400, 400);
+    cubito();
+
   //float cambio = color(234, 232, 211);
   for(int f =0; f<cant; f++){
     for(int g=0; g<cant; g++){
@@ -25,21 +27,20 @@ void draw() {
   miCuadra((f*tam)+(tam*2)+(tam/2), g*tam+(tam/2), 100, 8, cambio);
     }
   }
-  cubito();
+  //cubito();
+  
 }
 
 void nuevaCuadra(int x, int y, int ancho, int cant, float alterno ) {
   for (int X=0; X<cant; X++) {
     push();
     translate(x, y);
-    //rotate(radians(rotar));
+    
     rectMode(CENTER);
 
     float tami = map(X, 0, cant-1, ancho, cant/cant);
     float opacidad = map(X, 0, cant-1, cant/cant, ancho);
-    //stroke(200);
     noStroke();
-    strokeWeight(2);
     fill(nuevaCuadraColor, opacidad);
     rect(cant-cant, cant-cant, tami, tami);
     pop();
@@ -50,14 +51,11 @@ void miCuadra (int x, int y, int ancho, int cant, float alterno) {
   for (int X=0; X<cant; X++) {
     push();
     translate(x, y);
-    //rotate(radians(rotar));
     rectMode(CENTER);
 
     float tami = map(X, cant-cant, cant-1, ancho, cant);
     float opacidad = map(X, cant-cant, cant-1, cant/cant, ancho);
-    //stroke(20);
     noStroke();
-    //strokeWeight(2);
     fill(miCuadraColor, opacidad);
     rect(cant-cant, cant-cant, tami, tami);
     pop();
@@ -79,7 +77,6 @@ void keyPressed() {
     nuevaCuadraColor = color(21, 29, 70);
   }
 }
-
 
 
 
