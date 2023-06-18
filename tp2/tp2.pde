@@ -1,5 +1,5 @@
-//Alexander Peñaranda Diaz - legajo 94752/0
-// link
+//Alexander Peñaranda Diaz, legajo; 94752/0
+//https://youtu.be/-Sb_M3f-Gjs
 
 int cant = 2;
 int tam;
@@ -12,26 +12,35 @@ void setup() {
   img = loadImage("tecno.jpeg");
   miCuadraColor = color(234, 232, 211);
   nuevaCuadraColor = color(21, 29, 70);
+  // background(234, 232, 211);
 }
 
 void draw() {
   background(234, 232, 211);
   image(img, 0, 0, 400, 400);
-    cubito();
+    
 
-  //float cambio = color(234, 232, 211);
   for(int f =0; f<cant; f++){
     for(int g=0; g<cant; g++){
-   float cambio = color(234, 232, 211);
-  nuevaCuadra((f*tam)+(tam*2)+(tam/2), g*tam+(tam/2), 210, 12, cambio);
-  miCuadra((f*tam)+(tam*2)+(tam/2), g*tam+(tam/2), 100, 8, cambio);
+  nuevaCuadra((f*tam)+(tam*2)+(tam/2), g*tam+(tam/2), 210, 12 );
+  miCuadra((f*tam)+(tam*2)+(tam/2), g*tam+(tam/2), 100, 8);
+  cubito();
     }
   }
-  //cubito();
-  text("presiona cualquier tecla o clickea en cualquier \n parte de la pantalla para cambiar de color",100,370 );
+  text("presiona cualquier tecla o clickea en cualquier \n parte de la pantalla para cambiar de color \npresiona la barra espaciadora para volver al inicio ",100,350 );
 }
 
-void nuevaCuadra(int x, int y, int ancho, int cant, float alterno ) {
+void mousePressed() {
+  miCuadraColor = color(random(255), random(255), random(255));
+}
+void keyPressed() {
+  nuevaCuadraColor = color(random(255), random(255), random(255));
+  if (key==' ') {
+    miCuadraColor = color(234, 232, 211);
+    nuevaCuadraColor = color(21, 29, 70);
+  }
+}
+void nuevaCuadra(int x, int y, int ancho, int cant ) {
   for (int X=0; X<cant; X++) {
     push();
     translate(x, y);
@@ -47,7 +56,7 @@ void nuevaCuadra(int x, int y, int ancho, int cant, float alterno ) {
   }
 }
 
-void miCuadra (int x, int y, int ancho, int cant, float alterno) {
+void miCuadra (int x, int y, int ancho, int cant) {
   for (int X=0; X<cant; X++) {
     push();
     translate(x, y);
@@ -63,21 +72,10 @@ void miCuadra (int x, int y, int ancho, int cant, float alterno) {
 }
 void cubito() {
   noStroke();
-  fill(0, 0, 0,0);
+  fill(234, 232, 211);
   rectMode(CENTER);
   rect(600, 200, 40, 40);
 }
-void mousePressed() {
-  miCuadraColor = color(random(255), random(255), random(255));
-}
-void keyPressed() {
-  nuevaCuadraColor = color(random(255), random(255), random(255));
-  if (key==' ') {
-    miCuadraColor = color(234, 232, 211);
-    nuevaCuadraColor = color(21, 29, 70);
-  }
-}
-
 
 
 
