@@ -28,7 +28,7 @@ void draw() {
     }
   }
   //cubito();
-  
+  text("presiona cualquier tecla o clickea en cualquier \n parte de la pantalla para cambiar de color",100,370 );
 }
 
 void nuevaCuadra(int x, int y, int ancho, int cant, float alterno ) {
