@@ -12,7 +12,6 @@ class raiz {
 
   dibujar() {
     if (!this.juegoComenzado) {
-      // Mensaje inicial antes de comenzar el juego
       fill(255);
       textSize(15);
       text("¡Bienvenido! ", width / 2, height / 2);
@@ -27,7 +26,7 @@ class raiz {
             this.impactosNave ++;
             this.impactoInicial = true;
           }
-          if (this.impactosNave === 1) { // Si se alcanza el número máximo de impactos
+          if (this.impactosNave === 1) {
             this.nave.detenerNave();
             this.gameOver = true;
           }
@@ -75,20 +74,11 @@ class raiz {
     }
   }
   reiniciarJuego() {
-    // Reiniciar valores del juego
-    this.pantalla = 0; // Reiniciar pantalla inicial
+    this.pantalla = 0; 
     this.gameOver = false;
-    // Reiniciar la nave a su posición inicial
     this.nave = new Nave(width / 2 - 10, 800, 40);
-
-    // Crear nuevos meteoritos
     this.crearMeteorito();
-
-    // Crear nuevos planetas
     this.crearPlaneta();
-
-    // Reiniciar otras variables específicas del juego, si las tienes
-    // this.sinImpacto = 0;
     this.impactosNave = 0;
     this.juegoComenzado = false;
   }
