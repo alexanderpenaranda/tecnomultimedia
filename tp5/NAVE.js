@@ -20,18 +20,16 @@ class Nave {
 
  detectarImpactoMeteorito(meteorito) {
     if (this.choque(this.meteorito.posx, this.meteorito.posy, this.meteorito.ancho)) {
-      this.impactosNave++; // Incrementar el contador de impactos
-      return true; // Indicar que hubo un impacto
+      this.impactosNave++; 
+      return true;
     }
-    return false; // Indicar que no hubo impacto
+    return false;
   }
   movimiento() {
     if (this.chocar) {
       this.posy -= this.vel;
-      
-      // Verificar si la nave está sobre el planeta
       if (this.estaSobrePlaneta()) {
-        this.detenerNave(); // Llama al método para detener la nave
+        this.detenerNave();
       }
     }
   }
@@ -52,12 +50,10 @@ choque(x,y,d, px, py, nd){
     this.chocar=false ;
   }
  estaSobrePlaneta() {
-    // Asumiendo que el planeta tiene una posición y altura determinada
-    return this.posy <= this.planeta.posy + this.planeta.ancho / 2; // Ajusta esto según las coordenadas del planeta
+    return this.posy <= this.planeta.posy + this.planeta.ancho / 2; 
   }
    detenerNave() {
-    this.chocar = false; // Detiene el movimiento de la nave
-    // Puedes agregar más lógica aquí si necesitas realizar alguna acción adicional al detener la nave
+    this.chocar = false; 
   }
 
 }
